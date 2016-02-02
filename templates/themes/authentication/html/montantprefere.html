@@ -1,0 +1,32 @@
+<!--View Information-->
+<!--View name : Sign Up-->
+<!--State name : app.SignUp-->
+<!--URL : #app/SignUp-->
+
+<ion-view title="Montant de don préféré">
+    <!--left button on navigation bar-->
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back"></i>
+        </a>
+    </ion-nav-buttons><!--end left button on navigation bar-->
+
+    <!--social sign up section-->
+    <ion-content id="social-sign-up-content">
+        <div class="app-icon">
+            <img src="img/CRC/app-logo.png" class="md-card-image">
+        </div>
+        <!--input section-->
+                  <div class="radio-container">
+                <md-radio-group ng-model="radioData.fruit">
+                    <md-radio-button value="Apple"><img src="img/CRC/orangemoney.png"></md-radio-button>
+                    <md-radio-button value="Banana"><img src="img/CRC/mtnmoney.png"></md-radio-button>
+                    <md-radio-button value="Mango">Promesse de Don (Paiement par chèque / Virement / etc...)</md-radio-button>
+                </md-radio-group>
+            </div>
+<button class="button button-block button-assertive">
+Mettre a jour
+</button>
+
+    </ion-content><!--end social sign up section-->
+</ion-view>
