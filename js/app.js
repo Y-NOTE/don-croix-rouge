@@ -10,6 +10,16 @@
 //
 //Global variable use for setting color, start page, message, oAuth key.
 var db = null; //Use for SQLite database.
+ if(localStorage.login=='true'){
+        var url = "/app/appelUrgence";//Url of start page.
+        var state = "app.appelUrgence";//State name of start page.
+    }else{
+        var url = "/app/tryAppNoBackBtn";//Url of start page.
+        var state = "app.tryAppNoBackBtn";//State name of start page.
+    }   
+
+console.log(localStorage.login=='true');
+
 window.globalVariable = {
     //custom color style variable
     color: {
@@ -22,8 +32,8 @@ window.globalVariable = {
         wordpressColor: "#0087BE"
     },// End custom color style variable
     startPage: {
-        url: "/app/tryAppNoBackBtn",//Url of start page.
-        state: "app.tryAppNoBackBtn"//State name of start page.
+        url: url,//Url of start page.
+        state: state//State name of start page.
     },
     message: {
         errorMessage: "Technical error please try again later." //Default error message.
@@ -1087,5 +1097,4 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
 
         //Use $urlRouterProvider.otherwise(Url);
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
-
     });

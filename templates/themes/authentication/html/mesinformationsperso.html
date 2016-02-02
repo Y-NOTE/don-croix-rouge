@@ -18,28 +18,24 @@
         </div>
         <!--input section-->
         <div class="list">
+          <label class="item item-input item-stacked-label">
+    <span class="input-label">Adresse email</span>
+    <input type="email" ng-model="user.email" disabled>
+  </label>
   <label class="item item-input item-stacked-label">
     <span class="input-label">Nom</span>
-    <input type="text" placeholder="John">
+    <input type="text" placeholder="Votre nom" ng-model="user.nom">
   </label>
   <label class="item item-input item-stacked-label">
     <span class="input-label">Prénom</span>
-    <input type="text" placeholder="Suhr">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Adresse email</span>
-    <input type="email" ng-model="user.email">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Date de naissance</span>
-    <input type="date" placeholder="10/02/1973">
+    <input type="text" placeholder="Votre prenom" ng-model="user.prenom">
   </label>
   <label class="item item-input item-stacked-label">
     <span class="input-label">Numéro de téléphone</span>
-    <input type="tel" placeholder="0123456789">
+    <input type="tel" placeholder="0123456789" ng-model="user.telephone">
   </label>
 </div>
-<button class="button button-block button-assertive">
+<button class="button button-block button-assertive" ng-click="updateProfile()">
 Mettre a jour
 </button>
 

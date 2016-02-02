@@ -1,5 +1,5 @@
 // Controller of menu dashboard page.
-appControllers.controller('loginCtrl', ['$scope',"$mdToast","$ionicLoading",function ($scope, $mdToast,$ionicLoading) {
+appControllers.controller('loginCtrl', ['$scope',"$mdToast","$ionicLoading","$state","$mdSidenav",function ($scope, $mdToast,$ionicLoading,$state,$mdSidenav) {
      $scope.login = { email: "" };
      $scope.controlLogin = function (login) {
         if(!login){
@@ -54,7 +54,7 @@ appControllers.controller('loginCtrl', ['$scope',"$mdToast","$ionicLoading",func
 
             $.ajax({
                 type: "POST",
-                url: "http://localhost/phonegap/CRC-Don/CRCPhp/login.php",
+                url: "http://cosnac.y-note.cm/login.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -64,7 +64,7 @@ appControllers.controller('loginCtrl', ['$scope',"$mdToast","$ionicLoading",func
                       template: 'Enregistrement...'
                     });
                     if(data=="success"){
-                        localStorage.login=true;
+                        localStorage.login='true';
                         localStorage.email=login.email;
                         $mdToast.show({
                             controller: 'toastController',
@@ -77,7 +77,7 @@ appControllers.controller('loginCtrl', ['$scope',"$mdToast","$ionicLoading",func
                                 }
                             }
                         });
-                        window.location.href = "index.html";
+                        $state.go('app.appelUrgence');
                         return;
                     }else if(data=="failed"){
                         $mdToast.show({
@@ -128,7 +128,7 @@ appControllers.controller('loginCtrl', ['$scope',"$mdToast","$ionicLoading",func
 
 }]);// End of controller menu dashboard.
 
-appControllers.controller('signupCtrl', ['$scope',"$mdToast","$ionicLoading",function ($scope, $mdToast,$ionicLoading) {
+appControllers.controller('signupCtrl', ['$scope',"$mdToast","$ionicLoading","$state",function ($scope, $mdToast,$ionicLoading,$state) {
      $scope.controlSignup = function (signup) {
         if(!signup){
              $mdToast.show({
@@ -227,7 +227,7 @@ appControllers.controller('signupCtrl', ['$scope',"$mdToast","$ionicLoading",fun
 
             $.ajax({
                 type: "POST",
-                url: "http://localhost/phonegap/CRC-Don/CRCPhp/signup.php",
+                url: "http://cosnac.y-note.cm/signup.php",
                 data: dataString,
                 crossDomain: true,
                 cache: false,
@@ -237,7 +237,7 @@ appControllers.controller('signupCtrl', ['$scope',"$mdToast","$ionicLoading",fun
                       template: 'Enregistrement...'
                     });
                     if(data=="success"){
-                        localStorage.login=true;
+                        localStorage.login='true';
                         localStorage.email=signup.email;
                         $mdToast.show({
                             controller: 'toastController',
@@ -250,7 +250,7 @@ appControllers.controller('signupCtrl', ['$scope',"$mdToast","$ionicLoading",fun
                                 }
                             }
                         });
-                        window.location.href = "index.html";
+                        $state.go('app.appelUrgence');
                         return;
                     }else if(data=="failed"){
                         $mdToast.show({
@@ -294,13 +294,149 @@ appControllers.controller('moncompteCtrl', ['$scope',"$mdToast",function ($scope
 }]);// End of controller menu dashboard.
 
 
-appControllers.controller('mesinfospersoCtrl', ['$scope',"$mdToast",function ($scope, $mdToast) {
-       $scope.user = { email: localStorage.email };
+appControllers.controller('mesinfospersoCtrl' , ['$scope',"$mdToast","$ionicLoading",function ($scope, $mdToast,$ionicLoading) {
+       $scope.user = { 
+            email: localStorage.email,
+            nom: localStorage.nom,
+            prenom: localStorage.prenom,
+            telephone: localStorage.telephone,
+            oldemail: localStorage.email,          
+        };
+
+          $scope.updateProfile = function () {
+            var dataString="email="+$scope.user.email+"&nom="+$scope.user.nom+"&prenom="+$scope.user.prenom+"&telephone="+$scope.user.telephone+"&oldemail="+localStorage.email;
+            $ionicLoading.show({
+              template: 'Mise a jour...'
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "http://cosnac.y-note.cm/updateprofile.php",
+                data: dataString,
+                crossDomain: true,
+                cache: false,
+                success: function(data){
+                    $ionicLoading.hide({
+                        template: 'Mise a jour...'
+                    });
+                    if(data=="success"){
+                        localStorage.email=$scope.user.email;
+                        window.localStorage.nom=$scope.user.nom;
+                        window.localStorage.prenom=$scope.user.prenom;
+//                        window.localStorage.datenaissance=$scope.user.datenaissance;
+                        window.localStorage.telephone=$scope.user.telephone;
+                        $mdToast.show({
+                            controller: 'toastController',
+                            templateUrl: 'toast.html',
+                            hideDelay: 1500,
+                            position: 'bottom',
+                            locals: {
+                                displayOption: {
+                                    title: 'Votre profile a bien été mise a jour'
+                                }
+                            }
+                        });
+                        return;
+                    }else if(data=="failed"){
+                        $mdToast.show({
+                            controller: 'toastController',
+                            templateUrl: 'toast.html',
+                            hideDelay: 1500,
+                            position: 'bottom',
+                            locals: {
+                                displayOption: {
+                                    title: 'Erreur dans la création de votre compte'
+                                }
+                            }
+                        });
+                        return;
+                    }     
+                }
+            });
+
+
+          }
 
 }]);// End of controller menu dashboard.
 
-appControllers.controller('passwordupdateCtrl', ['$scope',"$mdToast",function ($scope, $mdToast) {
-  $scope.controlSignup = function (signup) {}
+appControllers.controller('passwordupdateCtrl', ['$scope',"$mdToast","$ionicLoading",function ($scope, $mdToast,$ionicLoading) {
+            $scope.user = { 
+                email: localStorage.email,
+            };
+
+          $scope.updatePassword = function () {
+            var dataString="email="+$scope.user.email+"&password="+$scope.user.password;
+            console.log($scope.user.password);
+            if(typeof $scope.user.password == 'undefined'){
+                $mdToast.show({
+                    controller: 'toastController',
+                    templateUrl: 'toast.html',
+                    hideDelay: 1500,
+                    position: 'bottom',
+                    locals: {
+                        displayOption: {
+                            title: 'Votre mot de passe est vide'
+                        }   
+                    }
+                });
+            }else if($scope.user.password!=$scope.user.passwordconfirm){
+              $mdToast.show({
+                    controller: 'toastController',
+                    templateUrl: 'toast.html',
+                    hideDelay: 1500,
+                    position: 'bottom',
+                    locals: {
+                        displayOption: {
+                            title: 'Vos mots de passe ne correspondent pas'
+                        }
+                    }
+                });
+            }else{
+                $ionicLoading.show({
+                  template: 'Mise a jour...'
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://cosnac.y-note.cm/updatepassword.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    success: function(data){
+                        $ionicLoading.hide({
+                            template: 'Mise a jour...'
+                        });
+                        if(data=="success"){
+                            $mdToast.show({
+                                controller: 'toastController',
+                                templateUrl: 'toast.html',
+                                hideDelay: 1500,
+                                position: 'bottom',
+                                locals: {
+                                    displayOption: {
+                                        title: 'Votre mot de passe a bien été mise a jour'
+                                    }
+                                }
+                            });
+                            return;
+                        }else if(data=="failed"){
+                            $mdToast.show({
+                                controller: 'toastController',
+                                templateUrl: 'toast.html',
+                                hideDelay: 1500,
+                                position: 'bottom',
+                                locals: {
+                                    displayOption: {
+                                        title: 'Erreur dans la création de votre compte'
+                                    }
+                                }
+                            });
+                            return;
+                        }     
+                    }
+                });
+        }
+  }
 
 }]);// End of controller menu dashboard.
 

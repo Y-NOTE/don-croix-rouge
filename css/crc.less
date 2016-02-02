@@ -159,12 +159,63 @@
 /****** Gestion des pages de dons d'appel d'urgence ******/
 
 .donappelurgence{
-	.bar-subheader{
-		background:url("../img/CRC/Urgence1.png");
+
+	&.donappelurgence1{
+		.bar-subheader{
+			background:url("../img/CRC/Urgence1.png");
+		}
 	}
+
+	&.donappelurgence2{
+		.bar-subheader{
+			background:url("../img/CRC/Urgence2.png");
+		}
+	}
+
+	&.donappelurgence3{
+		.bar-subheader{
+			background:url("../img/CRC/Urgence3.jpg");
+		}
+		.appelurgence-content{
+			h1{
+			    left: 5%;
+			}
+		}
+	}
+
+	&.donappelurgence4{
+		.bar-subheader{
+			background:url("../img/CRC/Urgence4.jpg");
+		}
+		.appelurgence-content{
+			h1{
+			    left: 20%;
+			}
+		}
+	}
+
+	&.donappelurgence5{
+		.bar-subheader{
+			background:url("../img/CRC/Urgence5.jpg");
+		}
+		.appelurgence-content{
+			h1{
+			    left: 5%;
+			}
+		}
+	}
+
+
 	.appelurgence-content{
 		background-color:@rouge !important;
 		color:#FFF;
+		h1{
+		    position: absolute;
+		    margin: 0 auto;
+		    left: 20%;
+		    text-shadow: 1px 1px 1px #000;
+		    bottom:20px;
+		}
 		.row-line{
 			border-bottom:1px solid #FFF;
 			&>div{
@@ -187,6 +238,14 @@
 			text-align: center;
 			padding: 30px;
 			font-size:24px;
+		}
+
+		.boutondon{
+			.button{
+				background-color: #831e22;
+				color:#FFF;
+				border:3px solid @rouge;
+			}
 		}
 	}
 }
@@ -217,7 +276,7 @@
 		}
 	}
 	.slider-slides{
-		    background: url(../img/CRC/Urgence5.jpg);
+		    background: url(../img/CRC/Urgence5-b.jpg);
 		    background-repeat: no-repeat;
 		    background-position: 0px 40px;
 		    h1{
@@ -265,7 +324,7 @@
 		}
 	}
 	.slider-slides{
-		    background: url(../img/CRC/Urgence4.jpg);
+		    background: url(../img/CRC/Urgence4-b.jpg);
 		    background-repeat: no-repeat;
 		    background-position: 0px 40px;
 		    h1{
@@ -313,7 +372,7 @@
 		}
 	}
 	.slider-slides{
-		    background: url(../img/CRC/Urgence3.jpg);
+		    background: url(../img/CRC/Urgence3-b.jpg);
 		    background-repeat: no-repeat;
 		    background-position: 0px 40px;
 		    h1{
@@ -361,7 +420,7 @@
 		}
 	}
 	.slider-slides{
-		    background: url(../img/CRC/Urgence2.jpg);
+		    background: url(../img/CRC/Urgence2-b.png);
 		    background-repeat: no-repeat;
 		    background-position: 0px 40px;
 		    h1{

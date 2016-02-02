@@ -43,8 +43,13 @@ appControllers.controller('menuCtrl', function ($scope, $timeout, $mdUtil, $mdSi
 
     $scope.logout = function () {
         localStorage.login=false;
+        localStorage.nom=null;
+        localStorage.prenom=null;
+        localStorage.prenom=null;
         $scope.login=false;
-        window.location.href = "index.html";
+        $mdSidenav('left').close();
+        $state.go('app.tryAppNoBackBtn');
+
     };// End navigateTo.
 
 

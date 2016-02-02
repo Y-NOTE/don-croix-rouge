@@ -8,7 +8,7 @@
     <ion-slide-box id="try-app-content" active-slide="0">
         <!--slider section-->
         <ion-slide class="slide-01">
-            <div class="row try-app-footer-content">
+            <div class="row try-app-footer-content"  ng-show="getLoginState() == 'false'">
                 <div class="col-50">
                     <a href="#/app/SignUp" class="left md-raised md-button md-default-theme ">Inscription</a>
                 </div>

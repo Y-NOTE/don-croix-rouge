@@ -32,9 +32,17 @@
             <!--It will disable animation to better performance on android.-->
             <!--list section-->
             <div ng-if="isAndroid" class="menu-list">
-                <div class="row menu-item"  ng-click="navigateTo('app.tryAppNoBackBtn')" ng-show="getLoginState() == 'false'">
+                <div class="row menu-item"  ng-click="navigateTo('app.tryAppNoBackBtn')">
                     <div class="col-33">
-                        <i class="fa fa-rocket"></i>
+                        <i class="ion-ios-home"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>Accueil</span>
+                    </div>
+                </div>
+                <div class="row menu-item"  ng-click="navigateTo('app.Login')" ng-show="getLoginState() == 'false'">
+                    <div class="col-33">
+                        <i class="ion-log-in"></i>
                     </div>
                     <div class="col-66">
                         <span>Connexion</span>
@@ -59,7 +67,7 @@
 
                 <div class="row menu-item"  ng-click="logout(); login='false';" ng-show="getLoginState() == 'true'">
                     <div class="col-33">
-                        <i class="fa fa-flag"></i>
+                        <i class="ion-log-out"></i>
                     </div>
                     <div class="col-66">
                         <span>Déconnexion</span>
@@ -82,8 +90,12 @@
             <!--If device is not Android application will present below code.-->
             <!--It will show animation when selecting row.-->
             <md-list ng-if="!isAndroid">
-                <md-list-item class="menu-list-item" ng-click="navigateTo('app.tryAppNoBackBtn')" ng-show="getLoginState() == 'false'">
-                    <i class="fa fa-rocket"></i>
+             <md-list-item class="menu-list-item" ng-click="navigateTo('app.tryAppNoBackBtn')">
+                    <i class="ion-ios-home"></i>
+                    <span>Accueil</span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.Login')" ng-show="getLoginState() == 'false'">
+                    <i class="ion-log-in"></i>
                     <span>Connexion</span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="navigateTo('app.MonCompte')" ng-show="getLoginState() == 'true'">
@@ -95,7 +107,7 @@
                     <span>Appel d'urgence</span>
                 </md-list-item>
                 <md-list-item class="menu-list-item" ng-click="logout(); login='false';" ng-show="getLoginState() == 'true'">
-                    <i class="fa fa-rocket"></i>
+                    <i class="ion-log-out"></i>
                     <span>Déconnexion</span>
                 </md-list-item>                
             </md-list>

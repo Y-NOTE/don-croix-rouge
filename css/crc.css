@@ -135,12 +135,40 @@
   color: #FFF !important;
 }
 /****** Gestion des pages de dons d'appel d'urgence ******/
-.donappelurgence .bar-subheader {
+.donappelurgence.donappelurgence1 .bar-subheader {
   background: url("../img/CRC/Urgence1.png");
+}
+.donappelurgence.donappelurgence2 .bar-subheader {
+  background: url("../img/CRC/Urgence2.png");
+}
+.donappelurgence.donappelurgence3 .bar-subheader {
+  background: url("../img/CRC/Urgence3.jpg");
+}
+.donappelurgence.donappelurgence3 .appelurgence-content h1 {
+  left: 5%;
+}
+.donappelurgence.donappelurgence4 .bar-subheader {
+  background: url("../img/CRC/Urgence4.jpg");
+}
+.donappelurgence.donappelurgence4 .appelurgence-content h1 {
+  left: 20%;
+}
+.donappelurgence.donappelurgence5 .bar-subheader {
+  background: url("../img/CRC/Urgence5.jpg");
+}
+.donappelurgence.donappelurgence5 .appelurgence-content h1 {
+  left: 5%;
 }
 .donappelurgence .appelurgence-content {
   background-color: #ff0404 !important;
   color: #FFF;
+}
+.donappelurgence .appelurgence-content h1 {
+  position: absolute;
+  margin: 0 auto;
+  left: 20%;
+  text-shadow: 1px 1px 1px #000;
+  bottom: 20px;
 }
 .donappelurgence .appelurgence-content .row-line {
   border-bottom: 1px solid #FFF;
@@ -163,6 +191,11 @@
   padding: 30px;
   font-size: 24px;
 }
+.donappelurgence .appelurgence-content .boutondon .button {
+  background-color: #831e22;
+  color: #FFF;
+  border: 3px solid #ff0404;
+}
 .appelurgence5-content .bar-footer {
   height: 85px;
 }
@@ -184,7 +217,7 @@
   color: #ff0404;
 }
 .appelurgence5-content .slider-slides {
-  background: url(../img/CRC/Urgence5.jpg);
+  background: url(../img/CRC/Urgence5-b.jpg);
   background-repeat: no-repeat;
   background-position: 0px 40px;
 }
@@ -227,7 +260,7 @@
   color: #ff0404;
 }
 .appelurgence4-content .slider-slides {
-  background: url(../img/CRC/Urgence4.jpg);
+  background: url(../img/CRC/Urgence4-b.jpg);
   background-repeat: no-repeat;
   background-position: 0px 40px;
 }
@@ -270,7 +303,7 @@
   color: #ff0404;
 }
 .appelurgence3-content .slider-slides {
-  background: url(../img/CRC/Urgence3.jpg);
+  background: url(../img/CRC/Urgence3-b.jpg);
   background-repeat: no-repeat;
   background-position: 0px 40px;
 }
@@ -313,7 +346,7 @@
   color: #ff0404;
 }
 .appelurgence2-content .slider-slides {
-  background: url(../img/CRC/Urgence2.jpg);
+  background: url(../img/CRC/Urgence2-b.png);
   background-repeat: no-repeat;
   background-position: 0px 40px;
 }
