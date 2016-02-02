@@ -1,0 +1,44 @@
+<!--View Information-->
+<!--View name : Sign Up-->
+<!--State name : app.SignUp-->
+<!--URL : #app/SignUp-->
+
+<ion-view title="Inscription">
+    <!--left button on navigation bar-->
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back"></i>
+        </a>
+    </ion-nav-buttons><!--end left button on navigation bar-->
+
+    <!--social sign up section-->
+    <ion-content id="social-sign-up-content">
+        <div class="app-icon">
+            <img src="img/CRC/app-logo.png" class="md-card-image">
+        </div>
+        <!--input section-->
+        <md-input-container md-no-float="">
+            <div>
+                <input type="email" class="user-name" placeholder="Email"  ng-model="signup.email" required>
+            </div>
+        </md-input-container>
+        <md-input-container md-no-float="">
+            <div>
+                <input type="password" class="user-name" placeholder="Mot de passe" ng-model="signup.password">
+            </div>
+        </md-input-container>
+        <md-input-container md-no-float="">
+            <div>
+                <input type="password" class="user-name" placeholder="Confirmation Mot de passe" ng-model="signup.passwordconfirm">
+            </div>
+        </md-input-container>
+        <md-checkbox aria-label="CheckboxTerms" ng-model="signup.checkbox">
+            J'accepte les conditions d'utilisations
+        </md-checkbox>
+
+        <a class="md-raised social-button md-button md-default-theme material-background" ng-click="controlSignup(signup)">
+            Je m'inscris
+        </a>
+
+    </ion-content>
+</ion-view>

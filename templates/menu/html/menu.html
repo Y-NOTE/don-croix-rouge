@@ -1,0 +1,107 @@
+<!--View Information-->
+<!--View name : Menu-->
+<!--Controller name : menuCtrl-->
+<!--Controller path : www/templates/menu/js/controllers.js-->
+<!--State name : app-->
+<!--URL : #app-->
+
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-balanced  material-background-nav-bar">
+            <ion-nav-buttons side="left">
+                <a class="button button-icon button-clear ion-navicon" menu-toggle="left" ng-click="toggleLeft()"></a>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    <md-sidenav md-component-id="left">
+        <!--menu section-->
+        <div class="material-background" id="toggle-menu-left-header">
+            <!--menu header section-->
+            <div class="menu-left-header">
+                <p>
+                    <span class="title">Croix Rouge Cameroun</span>
+                    <br/>
+                    <span class="sub-title">Soutenez les actions que vous aimez</span>
+                </p>
+            </div><!--end menu header section-->
+        </div> <!--menu content section-->
+        <ion-content id="toggle-menu-left-content">
+
+            <!--If device is android application will present below code.-->
+            <!--It will disable animation to better performance on android.-->
+            <!--list section-->
+            <div ng-if="isAndroid" class="menu-list">
+                <div class="row menu-item"  ng-click="navigateTo('app.tryAppNoBackBtn')" ng-show="getLoginState() == 'false'">
+                    <div class="col-33">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>Connexion</span>
+                    </div>
+                </div>
+                <div class="row menu-item"  ng-click="navigateTo('app.MonCompte')" ng-show="getLoginState() == 'true'">
+                    <div class="col-33">
+                        <i class="ion-person"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>Mon Compte</span>
+                    </div>
+                </div>
+                <div class="row menu-item"  ng-click="navigateTo('app.appelUrgence')" >
+                    <div class="col-33">
+                        <i class="fa fa-rocket"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>Appel d'urgence</span>
+                    </div>
+                </div>
+
+                <div class="row menu-item"  ng-click="logout(); login='false';" ng-show="getLoginState() == 'true'">
+                    <div class="col-33">
+                        <i class="fa fa-flag"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>Déconnexion</span>
+                    </div>
+                </div>
+            
+                <md-subheader class="md-warn">Material User Interface</md-subheader>
+                <div class="row menu-item"  ng-click="navigateTo('app.dashboard')">
+                    <div class="col-33">
+                        <i class="fa fa-th-list"></i>
+                    </div>
+                    <div class="col-66">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+              
+            </div>
+
+
+            <!--If device is not Android application will present below code.-->
+            <!--It will show animation when selecting row.-->
+            <md-list ng-if="!isAndroid">
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.tryAppNoBackBtn')" ng-show="getLoginState() == 'false'">
+                    <i class="fa fa-rocket"></i>
+                    <span>Connexion</span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.MonCompte')" ng-show="getLoginState() == 'true'">
+                    <i class="ion-person"></i>
+                    <span>Mon Compte</span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="navigateTo('app.appelUrgence')">
+                    <i class="fa fa-flag"></i>
+                    <span>Appel d'urgence</span>
+                </md-list-item>
+                <md-list-item class="menu-list-item" ng-click="logout(); login='false';" ng-show="getLoginState() == 'true'">
+                    <i class="fa fa-rocket"></i>
+                    <span>Déconnexion</span>
+                </md-list-item>                
+            </md-list>
+            <!--end list section-->
+        </ion-content><!--end menu content section-->
+        <!--end menu section-->
+
+    </md-sidenav>
+</ion-side-menus>

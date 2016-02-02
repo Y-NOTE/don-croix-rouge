@@ -1,0 +1,36 @@
+<!--View Information-->
+<!--View name : PromesseDon-->
+<!--State name : app.PromesseDon-->
+<!--URL : #app/PromesseDon-->
+
+<ion-view title="Promesse de don">
+    <!--left button on navigation bar-->
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back"></i>
+        </a>
+    </ion-nav-buttons><!--end left button on navigation bar-->
+
+    <!--login content section-->
+    <ion-content id="promesse-don" class="try-app-content">
+        <!--fake login form section-->
+        <form class="promesse-form">
+            <div>
+                <img src="img/CRC/app-logo-p.png"/>
+            </div></br>
+            <div class="sub-header"><h2>En cliquant sur Enregistrer la promesse vous vous engagé à faire un don du montant que vous allez entrer dans le champ ci-dessous.</h2></div></br>
+
+            <div>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Montant</span>
+                    <input type="number" placeholder="300">
+                </label>
+            </div>
+            </a>
+
+            <button class="button button-block button-assertive">
+                Enregistrer la promesse
+            </button>
+        </form> <!--end fake login form section-->
+    </ion-content><!--end login content section-->
+</ion-view>
